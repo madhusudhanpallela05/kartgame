@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twilight Kart Racer</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://esm.sh/three@0.160.0?dev",
+          "three/": "https://esm.sh/three@0.160.0&dev/"
+        }
+      }
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+        font-family: 'Arial', sans-serif;
+      }
+      
+      #gameContainer {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      
+      #ui {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        z-index: 100;
+      }
+      
+      #speedometer {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.8);
+        border: 3px solid #fff;
+        z-index: 100;
+      }
+      
+      #abilities {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 14px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        z-index: 100;
+      }
+      
+      .ability {
+        margin-bottom: 8px;
+        padding: 5px 10px;
+        background: rgba(0,0,0,0.6);
+        border-radius: 5px;
+      }
+      
+      .ability.active {
+        background: rgba(0,200,255,0.8);
+        animation: pulse 0.5s ease-in-out infinite alternate;
+      }
+      
+      @keyframes pulse {
+        from { opacity: 0.8; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameContainer">
+      <div id="ui">
+        <div>Speed: <span id="speedDisplay">0</span> mph</div>
+        <div>Lap Time: <span id="lapTime">0:00</span></div>
+      </div>
+      
+      <div id="abilities">
+        <div class="ability" id="boostAbility">SHIFT - Speed Boost</div>
+        <div class="ability" id="jumpAbility">CTRL+SPACE - Super Jump</div>
+        <div class="ability" id="shieldAbility">E - Shield</div>
+      </div>
+      
+      <canvas id="speedometer"></canvas>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ChatManager.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ImageGenerator.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ProgressLogger.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/OGP.js"></script>
+  </body>
+</html>
